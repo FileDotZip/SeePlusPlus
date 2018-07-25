@@ -1,5 +1,11 @@
 #include <iostream>
 
+/*
+Problems in this program:
++User can input a number which is greater than max int size, and program will break.
++User can input charecters which are not numbers and program will determine them equal.
+*/
+
 int max();
 int min();
 void userInterface();
