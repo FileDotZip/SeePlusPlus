@@ -1,25 +1,65 @@
 #include <iostream>
 
-int max(int, int);
+int max();
+int min();
+void userInterface();
+void userSum();
 
-int input1;
-int input2;
+int input1 = 0;
+int input2 = 0;
 
 int compare;
 
 int main(){
-    std::cout << "Give me two numbers and I will give you the highest of the two." << std::endl;
-    std::cin >> input1 >> input2;
-    compare = max(input1, input2);
-
-    std::cout << "The highest number you gave me was " << compare << std::endl;
+    userInterface();
     return 0;
 }
 
-int max(int a, int b){
-    if(a > b){
-        return a;
+void userInterface(){
+    if(input1 == 0 && input2 == 0)
+    std::cout << "Give the program two numbers which are not 0" << std::endl;
+    std::cin >> input1 >> input2;
+    if(input1 != input2){
+        userSum();
+    } else
+    std::cout << "These two numbers are equal" << std::endl;
+}
+
+void userSum(){
+    std::string userCommand;
+    int sumMax;
+    int sumMin;
+
+    while(true){
+    std::cout << "Would you like to know what number is [B]igger or [S]maller?" << std::endl;
+    std::cin >> userCommand;
+
+    if(userCommand == "b" || userCommand == "B"){
+        sumMax = max();
+        std::cout << "The bigger number is " << sumMax << std::endl;
+        break;
     }
+
+    else if(userCommand == "s" || userCommand == "S"){
+        sumMin = min();
+        std::cout << "The smaller number is " << sumMin << std::endl;
+        break;
+        }
     else
-    return b;
+    std::cout << "Please enter B for Bigger or S for smaller" << std::endl;
+    }
+}
+
+int max(){
+    if(input1 > input2)
+        return input1;
+    else
+        return input2;
+}
+
+int min(){
+    if(input1 < input2)
+        return input1;
+    else
+        return input2;
 }
