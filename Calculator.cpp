@@ -56,10 +56,13 @@ void Cal(std::string op){
 
     if(op == "+")
         z = x + y;
+
     if(op == "-")
         z = x - y;
+
     if(op == "x")
         z = x * y;
+        
     if(op == "/")
         z = x / y;
     
