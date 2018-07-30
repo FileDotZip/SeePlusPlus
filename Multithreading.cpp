@@ -4,7 +4,7 @@
 bool userInterupt = false;
 void thread2(){
 
-    std::cout << "Started Thread 2 on Thread ID " << std::this_thread::get_id() << "NEW THREAD START" <<std::endl;
+    std::cout << "Started Thread 2 on Thread ID " << std::this_thread::get_id() << " NEW THREAD START" <<std::endl;
 
     while(!userInterupt){
         std::cout << "Waiting for user input" << std::endl;
