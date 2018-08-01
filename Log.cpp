@@ -1,7 +1,13 @@
 #include <iostream>
 
 class Logger{
-    int LogLevel = 0;
+    public:
+    enum Level{
+        LevelInfo = 0, LevelWarning, LevelError
+    };
+
+    private:
+    int LogLevel = LevelInfo;
 
     void PrintLogLevel(){
         if(LogLevel == 0){
@@ -23,21 +29,21 @@ public:
 
     //INFO : LOG LEVEL 0
     void INFO(const char* message){
-        if(LogLevel <= 0){
+        if(LogLevel <= LevelInfo){
             std::cout << "INFO      : " << message << std::endl;
         }
     }
 
     //WARNING : LOG LEVEL 1
     void WARN(const char* message){
-        if(LogLevel <= 1){
+        if(LogLevel <= LevelWarning){
             std::cout << "WARNING   : " << message << std::endl;
         }
     }
 
     //ERROR : LOG LEVEL 2
     void ERR(const char* message){
-        if(LogLevel <= 2){
+        if(LogLevel <= LevelError){
             std::cout << "ERROR     : " << message << std::endl;
         }
     }
@@ -45,7 +51,7 @@ public:
 
 int main(){
     Logger Log;
-    Log.setLogLevel(0);
+    Log.setLogLevel(Logger::LevelWarning);
     Log.INFO("TEST");
     Log.WARN("Warning Test");
     Log.ERR("Error Test");
